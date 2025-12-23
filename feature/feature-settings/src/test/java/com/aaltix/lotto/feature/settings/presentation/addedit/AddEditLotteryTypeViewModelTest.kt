@@ -146,9 +146,8 @@ class AddEditLotteryTypeViewModelTest {
     }
 
     @Test
-    fun `UpdateName shows error for blank name`() = runTest {
+    fun `UpdateName with blank name sets REQUIRED error`() = runTest {
         // Given
-        val expectedError = "Name is required"
         viewModel = createViewModel()
 
         // When
@@ -158,8 +157,24 @@ class AddEditLotteryTypeViewModelTest {
         viewModel.state.test {
             val state = awaitItem()
             assertEquals("", state.name)
-            assertNotNull(state.nameError)
-            assertEquals(expectedError, state.nameError)
+            assertEquals(AddEditLotteryTypeContract.NameError.REQUIRED, state.nameError)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun `UpdateName with short name sets TOO_SHORT error`() = runTest {
+        // Given
+        viewModel = createViewModel()
+
+        // When
+        viewModel.processIntent(AddEditLotteryTypeContract.Intent.UpdateName("A"))
+
+        // Then
+        viewModel.state.test {
+            val state = awaitItem()
+            assertEquals("A", state.name)
+            assertEquals(AddEditLotteryTypeContract.NameError.TOO_SHORT, state.nameError)
             cancelAndIgnoreRemainingEvents()
         }
     }
@@ -296,7 +311,9 @@ class AddEditLotteryTypeViewModelTest {
         // Then
         viewModel.state.test {
             val state = awaitItem()
-            assertNotNull(state.nameError)
+            assertTrue(state.hasAttemptedSave)
+            assertEquals(AddEditLotteryTypeContract.NameError.REQUIRED, state.nameError)
+            assertTrue(state.showNameError)
             assertFalse(state.isSaving)
             cancelAndIgnoreRemainingEvents()
         }
@@ -343,17 +360,18 @@ class AddEditLotteryTypeViewModelTest {
     }
 
     @Test
-    fun `State isValid returns true when name is not blank`() = runTest {
+    fun `State isValid returns true when name has at least 2 characters`() = runTest {
         // Given
         viewModel = createViewModel()
 
         // When
-        viewModel.processIntent(AddEditLotteryTypeContract.Intent.UpdateName("Valid Name"))
+        viewModel.processIntent(AddEditLotteryTypeContract.Intent.UpdateName("Ab"))
 
         // Then
         viewModel.state.test {
             val state = awaitItem()
             assertTrue(state.isValid)
+            assertNull(state.nameError)
             cancelAndIgnoreRemainingEvents()
         }
     }
@@ -369,6 +387,24 @@ class AddEditLotteryTypeViewModelTest {
         viewModel.state.test {
             val state = awaitItem()
             assertFalse(state.isValid)
+            assertEquals(AddEditLotteryTypeContract.NameError.REQUIRED, state.nameError)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun `State isValid returns false when name is only 1 character`() = runTest {
+        // Given
+        viewModel = createViewModel()
+
+        // When
+        viewModel.processIntent(AddEditLotteryTypeContract.Intent.UpdateName("A"))
+
+        // Then
+        viewModel.state.test {
+            val state = awaitItem()
+            assertFalse(state.isValid)
+            assertEquals(AddEditLotteryTypeContract.NameError.TOO_SHORT, state.nameError)
             cancelAndIgnoreRemainingEvents()
         }
     }
