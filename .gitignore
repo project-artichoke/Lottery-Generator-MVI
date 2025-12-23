@@ -1,0 +1,27 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Project exclude paths
+/core/core-common/build/
+/core/core-data/build/
+/core/core-database/build/
+/core/core-database/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/
+/core/core-domain/build/
+/core/core-navigation/build/
+/core/core-ui/build/
+/feature/feature-generator/build/
+/feature/feature-history/build/
+/feature/feature-settings/build/
