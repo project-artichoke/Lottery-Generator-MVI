@@ -1,0 +1,269 @@
+[debug] [2025-12-18T12:41:34.881Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.883Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-18T12:41:34.883Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.883Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-18T12:41:34.892Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.893Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-18T12:41:34.911Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.911Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-18T12:41:34.911Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.911Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-18T12:41:34.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.912Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-18T12:41:34.913Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-18T12:41:34.913Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:30.583Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:30.585Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:30.585Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:30.585Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:30.586Z] Checked if tokens are valid: false, expires at: 1765643169327
+[debug] [2025-12-21T17:06:30.586Z] Checked if tokens are valid: false, expires at: 1765643169327
+[debug] [2025-12-21T17:06:30.586Z] > refreshing access token with scopes: []
+[debug] [2025-12-21T17:06:30.587Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-21T17:06:30.587Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-21T17:06:30.604Z] Checked if tokens are valid: false, expires at: 1765643169327
+[debug] [2025-12-21T17:06:30.604Z] Checked if tokens are valid: false, expires at: 1765643169327
+[debug] [2025-12-21T17:06:30.604Z] > refreshing access token with scopes: []
+[debug] [2025-12-21T17:06:30.604Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-21T17:06:30.604Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-21T17:06:30.605Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:30.605Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:30.605Z] Checked if tokens are valid: false, expires at: 1765643169327
+[debug] [2025-12-21T17:06:30.605Z] Checked if tokens are valid: false, expires at: 1765643169327
+[debug] [2025-12-21T17:06:30.605Z] > refreshing access token with scopes: []
+[debug] [2025-12-21T17:06:30.605Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-21T17:06:30.605Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-21T17:06:30.854Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-21T17:06:30.854Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-21T17:06:30.897Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:06:30.899Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-21T17:06:30.899Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-21T17:06:30.910Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:06:30.911Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-21T17:06:30.911Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-21T17:06:30.921Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:06:31.202Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:06:31.202Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:06:31.262Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:31.262Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:31.262Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:06:31.262Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:06:31.262Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:06:31.406Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:06:31.406Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:06:31.433Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:06:31.433Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:06:31.458Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:31.458Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:31.458Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:06:31.458Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:06:31.458Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:06:31.485Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:06:31.485Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:06:31.486Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:31.486Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:06:31.607Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:06:31.607Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:06:31.608Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:06:31.608Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:24.609Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:24.610Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:24.611Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:24.611Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:24.611Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.611Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.611Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.611Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.611Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:24.612Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:24.612Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:11:24.627Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:11:24.628Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.628Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.628Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:11:24.865Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:11:24.865Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:11:24.918Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:11:24.918Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:11:24.947Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:24.947Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:24.947Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.947Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.947Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:11:24.969Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:11:24.969Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:11:24.989Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:24.990Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:24.990Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.990Z] Checked if tokens are valid: true, expires at: 1766340389911
+[debug] [2025-12-21T17:11:24.990Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-21T17:11:25.105Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:11:25.105Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:11:25.106Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:25.106Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-21T17:11:25.233Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-21T17:11:25.233Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-21T17:11:25.236Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-21T17:11:25.236Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:05.532Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:05.534Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:05.534Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:05.534Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:05.535Z] Checked if tokens are valid: false, expires at: 1766340389911
+[debug] [2025-12-22T03:12:05.535Z] Checked if tokens are valid: false, expires at: 1766340389911
+[debug] [2025-12-22T03:12:05.535Z] > refreshing access token with scopes: []
+[debug] [2025-12-22T03:12:05.536Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-22T03:12:05.536Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T03:12:05.552Z] Checked if tokens are valid: false, expires at: 1766340389911
+[debug] [2025-12-22T03:12:05.552Z] Checked if tokens are valid: false, expires at: 1766340389911
+[debug] [2025-12-22T03:12:05.552Z] > refreshing access token with scopes: []
+[debug] [2025-12-22T03:12:05.552Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-22T03:12:05.552Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T03:12:05.553Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:05.553Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:05.553Z] Checked if tokens are valid: false, expires at: 1766340389911
+[debug] [2025-12-22T03:12:05.553Z] Checked if tokens are valid: false, expires at: 1766340389911
+[debug] [2025-12-22T03:12:05.553Z] > refreshing access token with scopes: []
+[debug] [2025-12-22T03:12:05.553Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-22T03:12:05.553Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T03:12:05.687Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-22T03:12:05.687Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T03:12:05.710Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T03:12:05.712Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-22T03:12:05.712Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T03:12:05.727Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T03:12:05.729Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-22T03:12:05.729Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T03:12:05.741Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T03:12:06.128Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T03:12:06.128Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T03:12:06.180Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T03:12:06.180Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T03:12:06.187Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T03:12:06.187Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T03:12:06.227Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:06.228Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:06.228Z] Checked if tokens are valid: true, expires at: 1766376724729
+[debug] [2025-12-22T03:12:06.228Z] Checked if tokens are valid: true, expires at: 1766376724729
+[debug] [2025-12-22T03:12:06.228Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T03:12:06.229Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:06.229Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:06.229Z] Checked if tokens are valid: true, expires at: 1766376724729
+[debug] [2025-12-22T03:12:06.229Z] Checked if tokens are valid: true, expires at: 1766376724729
+[debug] [2025-12-22T03:12:06.229Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T03:12:06.436Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T03:12:06.436Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T03:12:06.437Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:06.437Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T03:12:06.454Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T03:12:06.454Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T03:12:06.455Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T03:12:06.455Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:41.068Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:41.070Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:41.070Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:41.070Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:41.070Z] Checked if tokens are valid: false, expires at: 1766417379292
+[debug] [2025-12-22T21:13:41.071Z] Checked if tokens are valid: false, expires at: 1766417379292
+[debug] [2025-12-22T21:13:41.071Z] > refreshing access token with scopes: []
+[debug] [2025-12-22T21:13:41.071Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-22T21:13:41.071Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T21:13:41.088Z] Checked if tokens are valid: false, expires at: 1766417379292
+[debug] [2025-12-22T21:13:41.088Z] Checked if tokens are valid: false, expires at: 1766417379292
+[debug] [2025-12-22T21:13:41.088Z] > refreshing access token with scopes: []
+[debug] [2025-12-22T21:13:41.088Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-22T21:13:41.088Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T21:13:41.089Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:41.089Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:41.089Z] Checked if tokens are valid: false, expires at: 1766417379292
+[debug] [2025-12-22T21:13:41.089Z] Checked if tokens are valid: false, expires at: 1766417379292
+[debug] [2025-12-22T21:13:41.089Z] > refreshing access token with scopes: []
+[debug] [2025-12-22T21:13:41.089Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-22T21:13:41.089Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T21:13:41.263Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-22T21:13:41.263Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T21:13:41.301Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T21:13:41.302Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-22T21:13:41.302Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T21:13:41.317Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T21:13:41.327Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-22T21:13:41.327Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-22T21:13:41.340Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T21:13:41.655Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T21:13:41.656Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T21:13:41.722Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:41.722Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:41.722Z] Checked if tokens are valid: true, expires at: 1766441620327
+[debug] [2025-12-22T21:13:41.722Z] Checked if tokens are valid: true, expires at: 1766441620327
+[debug] [2025-12-22T21:13:41.722Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T21:13:41.873Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T21:13:41.873Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T21:13:41.904Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T21:13:41.904Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T21:13:41.931Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:41.931Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:41.931Z] Checked if tokens are valid: true, expires at: 1766441620327
+[debug] [2025-12-22T21:13:41.931Z] Checked if tokens are valid: true, expires at: 1766441620327
+[debug] [2025-12-22T21:13:41.931Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-22T21:13:42.011Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T21:13:42.011Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T21:13:42.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:42.012Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-22T21:13:42.144Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-22T21:13:42.144Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-22T21:13:42.145Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-22T21:13:42.145Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:25.531Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:25.533Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:25.533Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:25.533Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:25.533Z] Checked if tokens are valid: false, expires at: 1766441620327
+[debug] [2025-12-23T02:38:25.533Z] Checked if tokens are valid: false, expires at: 1766441620327
+[debug] [2025-12-23T02:38:25.533Z] > refreshing access token with scopes: []
+[debug] [2025-12-23T02:38:25.534Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-23T02:38:25.534Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-23T02:38:25.550Z] Checked if tokens are valid: false, expires at: 1766441620327
+[debug] [2025-12-23T02:38:25.550Z] Checked if tokens are valid: false, expires at: 1766441620327
+[debug] [2025-12-23T02:38:25.550Z] > refreshing access token with scopes: []
+[debug] [2025-12-23T02:38:25.550Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-23T02:38:25.550Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-23T02:38:25.551Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:25.551Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:25.551Z] Checked if tokens are valid: false, expires at: 1766441620327
+[debug] [2025-12-23T02:38:25.551Z] Checked if tokens are valid: false, expires at: 1766441620327
+[debug] [2025-12-23T02:38:25.551Z] > refreshing access token with scopes: []
+[debug] [2025-12-23T02:38:25.551Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-23T02:38:25.551Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-23T02:38:25.821Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-23T02:38:25.821Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-23T02:38:25.845Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-23T02:38:25.846Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-23T02:38:25.846Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-23T02:38:25.860Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-23T02:38:25.861Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-23T02:38:25.861Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-23T02:38:25.871Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-23T02:38:26.194Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-23T02:38:26.195Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-23T02:38:26.217Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-23T02:38:26.217Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-23T02:38:26.234Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-23T02:38:26.234Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-23T02:38:26.301Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:26.301Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:26.301Z] Checked if tokens are valid: true, expires at: 1766461104861
+[debug] [2025-12-23T02:38:26.301Z] Checked if tokens are valid: true, expires at: 1766461104861
+[debug] [2025-12-23T02:38:26.301Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-23T02:38:26.302Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:26.302Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:26.302Z] Checked if tokens are valid: true, expires at: 1766461104861
+[debug] [2025-12-23T02:38:26.302Z] Checked if tokens are valid: true, expires at: 1766461104861
+[debug] [2025-12-23T02:38:26.302Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo [none]
+[debug] [2025-12-23T02:38:26.434Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-23T02:38:26.434Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-23T02:38:26.435Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:26.435Z] > authorizing via signed-in user (jasonandujar95@gmail.com)
+[debug] [2025-12-23T02:38:26.488Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo 200
+[debug] [2025-12-23T02:38:26.488Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nestcheck-e1fc9/billingInfo {"name":"projects/nestcheck-e1fc9/billingInfo","projectId":"nestcheck-e1fc9","billingAccountName":"billingAccounts/01526B-5ED65E-3C1FA2","billingEnabled":true}
+[debug] [2025-12-23T02:38:26.489Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-23T02:38:26.489Z] > authorizing via signed-in user (jasonandujar95@gmail.com)

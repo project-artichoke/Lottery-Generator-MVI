@@ -135,8 +135,19 @@ private fun AddEditLotteryTypeContent(
                         value = state.name,
                         onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateName(it)) },
                         label = { Text(stringResource(R.string.lottery_name)) },
-                        isError = state.nameError != null,
-                        supportingText = state.nameError?.let { { Text(it) } },
+                        isError = state.showNameError,
+                        supportingText = if (state.showNameError) {
+                            {
+                                val errorText = when (state.nameError) {
+                                    AddEditLotteryTypeContract.NameError.REQUIRED ->
+                                        stringResource(R.string.error_name_required)
+                                    AddEditLotteryTypeContract.NameError.TOO_SHORT ->
+                                        stringResource(R.string.error_name_too_short)
+                                    null -> ""
+                                }
+                                Text(errorText, color = MaterialTheme.colorScheme.error)
+                            }
+                        } else null,
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(
                             capitalization = KeyboardCapitalization.Words
@@ -156,6 +167,11 @@ private fun AddEditLotteryTypeContent(
                                     Text(
                                         text = stringResource(R.string.main_numbers),
                                         style = MaterialTheme.typography.titleMedium
+                                    )
+                                    Text(
+                                        text = stringResource(R.string.helper_main_numbers),
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                     Spacer(modifier = Modifier.height(12.dp))
                                     Row(
@@ -186,6 +202,11 @@ private fun AddEditLotteryTypeContent(
                                     Text(
                                         text = stringResource(R.string.bonus_number),
                                         style = MaterialTheme.typography.titleMedium
+                                    )
+                                    Text(
+                                        text = stringResource(R.string.helper_bonus_numbers),
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                     Spacer(modifier = Modifier.height(12.dp))
                                     Row(
@@ -224,6 +245,11 @@ private fun AddEditLotteryTypeContent(
                                     text = stringResource(R.string.main_numbers),
                                     style = MaterialTheme.typography.titleMedium
                                 )
+                                Text(
+                                    text = stringResource(R.string.helper_main_numbers),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
                                 Spacer(modifier = Modifier.height(12.dp))
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
@@ -253,6 +279,11 @@ private fun AddEditLotteryTypeContent(
                                 Text(
                                     text = stringResource(R.string.bonus_number),
                                     style = MaterialTheme.typography.titleMedium
+                                )
+                                Text(
+                                    text = stringResource(R.string.helper_bonus_numbers),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Spacer(modifier = Modifier.height(12.dp))
                                 Row(

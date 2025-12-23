@@ -65,8 +65,7 @@ class AddEditLotteryTypeViewModel(
     }
 
     private fun updateName(name: String) {
-        val nameError = if (name.isBlank()) "Name is required" else null
-        setState { copy(name = name, nameError = nameError) }
+        setState { copy(name = name) }
     }
 
     private fun updateMainNumberCount(count: Int) {
@@ -98,12 +97,11 @@ class AddEditLotteryTypeViewModel(
     }
 
     private fun save() {
+        setState { copy(hasAttemptedSave = true) }
+
         val currentState = state.value
 
         if (!currentState.isValid) {
-            if (currentState.name.isBlank()) {
-                setState { copy(nameError = "Name is required") }
-            }
             return
         }
 

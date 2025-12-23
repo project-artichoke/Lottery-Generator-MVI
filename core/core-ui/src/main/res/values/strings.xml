@@ -48,6 +48,10 @@
     <string name="tap_plus_to_add">Tap + to create your own lottery type</string>
     <string name="manage_custom_types">Manage Custom Types</string>
     <string name="custom_types_count">%1$d custom types</string>
+    <string name="error_name_required">Name is required</string>
+    <string name="error_name_too_short">Name must be at least 2 characters</string>
+    <string name="helper_main_numbers">Select how many numbers to pick and the maximum value</string>
+    <string name="helper_bonus_numbers">Set to 0 for no bonus number</string>
 
     <!-- History Screen -->
     <string name="history">History</string>

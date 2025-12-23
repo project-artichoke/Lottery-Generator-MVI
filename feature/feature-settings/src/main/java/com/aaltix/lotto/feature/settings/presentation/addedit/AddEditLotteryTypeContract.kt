@@ -17,18 +17,29 @@ object AddEditLotteryTypeContract {
         val bonusNumberMax: Int = 25,
         val isLoading: Boolean = false,
         val isSaving: Boolean = false,
-        val nameError: String? = null,
+        val hasAttemptedSave: Boolean = false,
         val error: String? = null
     ) {
         val isEditMode: Boolean get() = typeId != null
         val hasBonusNumbers: Boolean get() = bonusNumberCount > 0
-        val isValid: Boolean get() = name.isNotBlank() && nameError == null
+        val isValid: Boolean get() = name.length >= 2
+        val nameError: NameError? get() = when {
+            name.isBlank() -> NameError.REQUIRED
+            name.length < 2 -> NameError.TOO_SHORT
+            else -> null
+        }
+        val showNameError: Boolean get() = hasAttemptedSave && nameError != null
         val previewMainNumbers: String get() = "$mainNumberCount numbers from 1-$mainNumberMax"
         val previewBonusNumbers: String get() = if (hasBonusNumbers) {
             "$bonusNumberCount bonus from 1-$bonusNumberMax"
         } else {
             "No bonus numbers"
         }
+    }
+
+    enum class NameError {
+        REQUIRED,
+        TOO_SHORT
     }
 
     /**
