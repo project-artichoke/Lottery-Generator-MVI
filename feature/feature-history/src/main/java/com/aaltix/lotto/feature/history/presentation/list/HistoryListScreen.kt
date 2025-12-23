@@ -4,9 +4,9 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -85,7 +85,7 @@ fun HistoryListScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HistoryListContent(
     state: HistoryListContract.State,
@@ -122,24 +122,29 @@ private fun HistoryListContent(
         ) {
             // Filter chips
             if (state.availableFilters.isNotEmpty()) {
-                FlowRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                val filterChipColors = FilterChipDefaults.filterChipColors(
+                    selectedContainerColor = SkyBlue,
+                    selectedLabelColor = Color.White,
+                    selectedLeadingIconColor = Color.White
+                )
+                LazyRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    val filterChipColors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = SkyBlue,
-                        selectedLabelColor = Color.White,
-                        selectedLeadingIconColor = Color.White
-                    )
-                    FilterChip(
-                        selected = state.selectedFilter == null,
-                        onClick = { onIntent(HistoryListContract.Intent.FilterByType(null)) },
-                        label = { Text(stringResource(R.string.history_filter_all)) },
-                        colors = filterChipColors
-                    )
-                    state.availableFilters.forEach { type ->
+                    item {
+                        FilterChip(
+                            selected = state.selectedFilter == null,
+                            onClick = { onIntent(HistoryListContract.Intent.FilterByType(null)) },
+                            label = { Text(stringResource(R.string.history_filter_all)) },
+                            colors = filterChipColors
+                        )
+                    }
+                    items(
+                        count = state.availableFilters.size,
+                        key = { state.availableFilters[it].id }
+                    ) { index ->
+                        val type = state.availableFilters[index]
                         FilterChip(
                             selected = state.selectedFilter?.id == type.id,
                             onClick = { onIntent(HistoryListContract.Intent.FilterByType(type)) },

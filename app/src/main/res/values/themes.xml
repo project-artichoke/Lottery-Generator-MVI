@@ -1,10 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme for Compose -->
     <style name="Theme.LotteryGenerator" parent="android:Theme.Material.Light.NoActionBar">
-        <!-- Status bar color -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <!-- Enable edge-to-edge -->
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <!-- Status bar matches primary color (SkyBlue) -->
+        <item name="android:statusBarColor">#87CEEB</item>
+        <!-- White status bar icons -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 </resources>
