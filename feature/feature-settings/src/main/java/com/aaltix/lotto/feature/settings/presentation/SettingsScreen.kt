@@ -2,7 +2,9 @@ package com.aaltix.lotto.feature.settings.presentation
 
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,6 +43,9 @@ import com.aaltix.lotto.core.ui.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aaltix.lotto.core.domain.model.LotteryType
 import com.aaltix.lotto.core.domain.model.LotteryTypes
+import com.aaltix.lotto.core.ui.adaptive.CenteredContent
+import com.aaltix.lotto.core.ui.adaptive.adaptiveHorizontalPadding
+import com.aaltix.lotto.core.ui.adaptive.isExpandedTablet
 import com.aaltix.lotto.core.ui.components.LoadingIndicator
 import com.aaltix.lotto.core.ui.components.LottoCard
 import com.aaltix.lotto.core.ui.theme.LottoTheme
@@ -88,6 +93,8 @@ private fun SettingsContent(
     onIntent: (SettingsContract.Intent) -> Unit
 ) {
     val context = LocalContext.current
+    val horizontalPadding = adaptiveHorizontalPadding()
+    val isExpanded = isExpandedTablet()
 
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(
@@ -101,115 +108,172 @@ private fun SettingsContent(
         if (state.isLoading) {
             LoadingIndicator(modifier = Modifier.fillMaxSize())
         } else {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
-            ) {
-                // Custom Lottery Types Section
-                SectionHeader(title = stringResource(R.string.custom_lottery_types))
-
-                LottoCard(
-                    modifier = Modifier.padding(horizontal = 16.dp)
+            CenteredContent(maxWidth = 900.dp) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = horizontalPadding)
                 ) {
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.manage_custom_types)) },
-                        supportingContent = {
-                            Text(
-                                stringResource(
-                                    R.string.custom_types_count,
-                                    state.customTypesCount
+                    if (isExpanded) {
+                        // Two-column layout for expanded tablets
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(24.dp)
+                        ) {
+                            // Left column: Custom Types + Lottery Types
+                            Column(modifier = Modifier.weight(1f)) {
+                                CustomTypesSection(
+                                    customTypesCount = state.customTypesCount,
+                                    onNavigateToCustomTypes = {
+                                        onIntent(SettingsContract.Intent.NavigateToCustomTypes)
+                                    }
                                 )
-                            )
-                        },
-                        trailingContent = {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        },
-                        modifier = Modifier.clickable {
-                            onIntent(SettingsContract.Intent.NavigateToCustomTypes)
-                        }
-                    )
-                }
 
-                Spacer(modifier = Modifier.height(24.dp))
+                                Spacer(modifier = Modifier.height(24.dp))
 
-                // Lottery Types Section
-                SectionHeader(title = stringResource(R.string.available_lottery_types))
-
-                LottoCard(
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                ) {
-                    state.lotteryTypes.forEachIndexed { index, type ->
-                        LotteryTypeItem(
-                            type = type,
-                            onInfoClick = { onIntent(SettingsContract.Intent.ViewLotteryTypeInfo(type)) }
-                        )
-                        if (index < state.lotteryTypes.lastIndex) {
-                            HorizontalDivider()
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                // About Section
-                SectionHeader(title = stringResource(R.string.about))
-
-                LottoCard(
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                ) {
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.version)) },
-                        supportingContent = { Text(state.appVersion) }
-                    )
-                    HorizontalDivider()
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.developer)) },
-                        supportingContent = { Text(stringResource(R.string.developer_name)) }
-                    )
-                    HorizontalDivider()
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.architecture)) },
-                        supportingContent = { Text(stringResource(R.string.architecture_description)) }
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                // Responsible Gaming Section
-                SectionHeader(title = stringResource(R.string.responsible_gaming))
-
-                LottoCard(
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                ) {
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.responsible_gaming_link)) },
-                        supportingContent = {
-                            Text(stringResource(R.string.disclaimer_responsible_gaming))
-                        },
-                        leadingContent = {
-                            Icon(
-                                imageVector = Icons.Default.Phone,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
-                        },
-                        modifier = Modifier.clickable {
-                            val intent = Intent(Intent.ACTION_DIAL).apply {
-                                data = Uri.parse("tel:1-800-426-2537")
+                                LotteryTypesSection(
+                                    lotteryTypes = state.lotteryTypes,
+                                    onViewInfo = { type ->
+                                        onIntent(SettingsContract.Intent.ViewLotteryTypeInfo(type))
+                                    }
+                                )
                             }
-                            context.startActivity(intent)
-                        }
-                    )
-                }
 
-                Spacer(modifier = Modifier.height(32.dp))
+                            // Right column: About + Responsible Gaming
+                            Column(modifier = Modifier.weight(1f)) {
+                                AboutSection(appVersion = state.appVersion)
+
+                                Spacer(modifier = Modifier.height(24.dp))
+
+                                ResponsibleGamingSection(context = context)
+                            }
+                        }
+                    } else {
+                        // Single-column layout for phones and medium tablets
+                        CustomTypesSection(
+                            customTypesCount = state.customTypesCount,
+                            onNavigateToCustomTypes = {
+                                onIntent(SettingsContract.Intent.NavigateToCustomTypes)
+                            }
+                        )
+
+                        Spacer(modifier = Modifier.height(24.dp))
+
+                        LotteryTypesSection(
+                            lotteryTypes = state.lotteryTypes,
+                            onViewInfo = { type ->
+                                onIntent(SettingsContract.Intent.ViewLotteryTypeInfo(type))
+                            }
+                        )
+
+                        Spacer(modifier = Modifier.height(24.dp))
+
+                        AboutSection(appVersion = state.appVersion)
+
+                        Spacer(modifier = Modifier.height(24.dp))
+
+                        ResponsibleGamingSection(context = context)
+                    }
+
+                    Spacer(modifier = Modifier.height(32.dp))
+                }
             }
         }
+    }
+}
+
+@Composable
+private fun CustomTypesSection(
+    customTypesCount: Int,
+    onNavigateToCustomTypes: () -> Unit
+) {
+    SectionHeader(title = stringResource(R.string.custom_lottery_types))
+
+    LottoCard {
+        ListItem(
+            headlineContent = { Text(stringResource(R.string.manage_custom_types)) },
+            supportingContent = {
+                Text(stringResource(R.string.custom_types_count, customTypesCount))
+            },
+            trailingContent = {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            },
+            modifier = Modifier.clickable { onNavigateToCustomTypes() }
+        )
+    }
+}
+
+@Composable
+private fun LotteryTypesSection(
+    lotteryTypes: List<LotteryType>,
+    onViewInfo: (LotteryType) -> Unit
+) {
+    SectionHeader(title = stringResource(R.string.available_lottery_types))
+
+    LottoCard {
+        lotteryTypes.forEachIndexed { index, type ->
+            LotteryTypeItem(
+                type = type,
+                onInfoClick = { onViewInfo(type) }
+            )
+            if (index < lotteryTypes.lastIndex) {
+                HorizontalDivider()
+            }
+        }
+    }
+}
+
+@Composable
+private fun AboutSection(appVersion: String) {
+    SectionHeader(title = stringResource(R.string.about))
+
+    LottoCard {
+        ListItem(
+            headlineContent = { Text(stringResource(R.string.version)) },
+            supportingContent = { Text(appVersion) }
+        )
+        HorizontalDivider()
+        ListItem(
+            headlineContent = { Text(stringResource(R.string.developer)) },
+            supportingContent = { Text(stringResource(R.string.developer_name)) }
+        )
+        HorizontalDivider()
+        ListItem(
+            headlineContent = { Text(stringResource(R.string.architecture)) },
+            supportingContent = { Text(stringResource(R.string.architecture_description)) }
+        )
+    }
+}
+
+@Composable
+private fun ResponsibleGamingSection(context: android.content.Context) {
+    SectionHeader(title = stringResource(R.string.responsible_gaming))
+
+    LottoCard {
+        ListItem(
+            headlineContent = { Text(stringResource(R.string.responsible_gaming_link)) },
+            supportingContent = {
+                Text(stringResource(R.string.disclaimer_responsible_gaming))
+            },
+            leadingContent = {
+                Icon(
+                    imageVector = Icons.Default.Phone,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            },
+            modifier = Modifier.clickable {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:1-800-426-2537")
+                }
+                context.startActivity(intent)
+            }
+        )
     }
 }
 
@@ -221,7 +285,7 @@ private fun SectionHeader(title: String) {
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(vertical = 8.dp)
     )
 }
 

@@ -4,8 +4,13 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -41,6 +46,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aaltix.lotto.core.domain.model.GeneratedNumbers
@@ -52,6 +58,9 @@ import com.aaltix.lotto.core.ui.components.LottoCard
 import com.aaltix.lotto.core.ui.theme.LottoTheme
 import com.aaltix.lotto.core.ui.theme.SkyBlue
 import com.aaltix.lotto.core.ui.R
+import com.aaltix.lotto.core.ui.adaptive.adaptiveGridColumns
+import com.aaltix.lotto.core.ui.adaptive.adaptiveHorizontalPadding
+import com.aaltix.lotto.core.ui.adaptive.adaptiveSmallBallSize
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -91,6 +100,10 @@ private fun HistoryListContent(
     state: HistoryListContract.State,
     onIntent: (HistoryListContract.Intent) -> Unit
 ) {
+    val gridColumns = adaptiveGridColumns()
+    val horizontalPadding = adaptiveHorizontalPadding()
+    val ballSize = adaptiveSmallBallSize()
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -163,19 +176,43 @@ private fun HistoryListContent(
                     EmptyHistoryMessage()
                 }
                 else -> {
-                    LazyColumn(
-                        contentPadding = PaddingValues(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        items(
-                            items = state.historyEntries,
-                            key = { it.id }
-                        ) { entry ->
-                            HistoryItem(
-                                entry = entry,
-                                onClick = { onIntent(HistoryListContract.Intent.ViewDetail(entry.id)) },
-                                onDelete = { onIntent(HistoryListContract.Intent.DeleteEntry(entry.id)) }
-                            )
+                    if (gridColumns > 1) {
+                        // Grid layout for tablets
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(gridColumns),
+                            contentPadding = PaddingValues(horizontalPadding),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            items(
+                                items = state.historyEntries,
+                                key = { it.id }
+                            ) { entry ->
+                                HistoryItem(
+                                    entry = entry,
+                                    ballSize = ballSize,
+                                    onClick = { onIntent(HistoryListContract.Intent.ViewDetail(entry.id)) },
+                                    onDelete = { onIntent(HistoryListContract.Intent.DeleteEntry(entry.id)) }
+                                )
+                            }
+                        }
+                    } else {
+                        // List layout for phones
+                        LazyColumn(
+                            contentPadding = PaddingValues(horizontalPadding),
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            items(
+                                items = state.historyEntries,
+                                key = { it.id }
+                            ) { entry ->
+                                HistoryItem(
+                                    entry = entry,
+                                    ballSize = ballSize,
+                                    onClick = { onIntent(HistoryListContract.Intent.ViewDetail(entry.id)) },
+                                    onDelete = { onIntent(HistoryListContract.Intent.DeleteEntry(entry.id)) }
+                                )
+                            }
                         }
                     }
                 }
@@ -207,9 +244,11 @@ private fun HistoryListContent(
         }
     }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun HistoryItem(
     entry: GeneratedNumbers,
+    ballSize: Dp = 36.dp,
     onClick: () -> Unit,
     onDelete: () -> Unit
 ) {
@@ -236,16 +275,17 @@ private fun HistoryItem(
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // Numbers display
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                // Numbers display - using FlowRow to wrap when needed
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     entry.mainNumbers.forEachIndexed { index, number ->
                         LottoBall(
                             number = number,
                             index = index,
                             animate = false,
-                            size = 36.dp
+                            size = ballSize
                         )
                     }
 
@@ -256,7 +296,7 @@ private fun HistoryItem(
                                 number = number,
                                 isBonus = true,
                                 animate = false,
-                                size = 36.dp
+                                size = ballSize
                             )
                         }
                     }

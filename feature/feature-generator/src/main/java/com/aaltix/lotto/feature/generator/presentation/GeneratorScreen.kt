@@ -57,8 +57,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.aaltix.lotto.core.ui.R
+import com.aaltix.lotto.core.ui.adaptive.CenteredContent
+import com.aaltix.lotto.core.ui.adaptive.adaptiveBallSize
+import com.aaltix.lotto.core.ui.adaptive.adaptiveHorizontalPadding
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aaltix.lotto.core.domain.model.GeneratedNumbers
 import com.aaltix.lotto.core.domain.model.LotteryType
@@ -117,6 +121,9 @@ private fun GeneratorContent(
     val sheetState = rememberModalBottomSheetState()
     val scope = rememberCoroutineScope()
 
+    val horizontalPadding = adaptiveHorizontalPadding()
+    val ballSize = adaptiveBallSize()
+
     Box(modifier = Modifier.fillMaxSize()) {
         Scaffold(
             topBar = {
@@ -129,15 +136,16 @@ private fun GeneratorContent(
                 )
             }
         ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(horizontal = 16.dp)
-                    .padding(top = 16.dp)
-                    .verticalScroll(rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+            CenteredContent(maxWidth = 600.dp) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .padding(horizontal = horizontalPadding)
+                        .padding(top = 16.dp)
+                        .verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                 // Lottery Type Selector Card
                 LotteryTypeSelectorCard(
                     selectedType = state.selectedLotteryType,
@@ -169,6 +177,7 @@ private fun GeneratorContent(
                         NumbersDisplay(
                             numbers = state.generatedNumbers,
                             animate = state.isAnimating,
+                            ballSize = ballSize,
                             onAnimationComplete = { onIntent(GeneratorContract.Intent.AnimationComplete) }
                         )
                     } else {
@@ -194,6 +203,7 @@ private fun GeneratorContent(
                         color = MaterialTheme.colorScheme.error,
                         style = MaterialTheme.typography.bodyMedium
                     )
+                }
                 }
             }
         }
@@ -417,6 +427,7 @@ private fun LotteryTypeItem(
 private fun NumbersDisplay(
     numbers: GeneratedNumbers,
     animate: Boolean,
+    ballSize: Dp = 56.dp,
     onAnimationComplete: () -> Unit
 ) {
     Column(
@@ -441,6 +452,7 @@ private fun NumbersDisplay(
                     number = number,
                     index = index,
                     animate = animate,
+                    size = ballSize,
                     modifier = Modifier.padding(horizontal = 4.dp)
                 )
             }
@@ -467,6 +479,7 @@ private fun NumbersDisplay(
                         isBonus = true,
                         index = numbers.mainNumbers.size + index,
                         animate = animate,
+                        size = ballSize,
                         modifier = Modifier.padding(horizontal = 4.dp)
                     )
                 }

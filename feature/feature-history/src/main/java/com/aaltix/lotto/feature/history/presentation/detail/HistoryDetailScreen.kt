@@ -35,6 +35,9 @@ import com.aaltix.lotto.core.ui.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aaltix.lotto.core.domain.model.GeneratedNumbers
 import com.aaltix.lotto.core.domain.model.LotteryTypes
+import com.aaltix.lotto.core.ui.adaptive.CenteredContent
+import com.aaltix.lotto.core.ui.adaptive.adaptiveBallSize
+import com.aaltix.lotto.core.ui.adaptive.adaptiveHorizontalPadding
 import com.aaltix.lotto.core.ui.components.LoadingIndicator
 import com.aaltix.lotto.core.ui.components.LottoBall
 import com.aaltix.lotto.core.ui.components.LottoCard
@@ -96,6 +99,9 @@ private fun HistoryDetailContent(
     state: HistoryDetailContract.State,
     onIntent: (HistoryDetailContract.Intent) -> Unit
 ) {
+    val horizontalPadding = adaptiveHorizontalPadding()
+    val ballSize = adaptiveBallSize()
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -132,112 +138,116 @@ private fun HistoryDetailContent(
                 LoadingIndicator(modifier = Modifier.padding(paddingValues))
             }
             state.error != null -> {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        .padding(horizontal = 16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = state.error,
-                        color = MaterialTheme.colorScheme.error,
-                        style = MaterialTheme.typography.bodyLarge
-                    )
+                CenteredContent(maxWidth = 600.dp) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            .padding(horizontal = horizontalPadding),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = state.error,
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                    }
                 }
             }
             state.entry != null -> {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        .padding(horizontal = 16.dp)
-                        .padding(top = 16.dp)
-                ) {
-                    LottoCard {
-                        Text(
-                            text = state.entry.lotteryType.displayName,
-                            style = MaterialTheme.typography.headlineSmall,
-                            color = MaterialTheme.colorScheme.primary
-                        )
+                CenteredContent(maxWidth = 600.dp) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            .padding(horizontal = horizontalPadding)
+                            .padding(top = 16.dp)
+                    ) {
+                        LottoCard {
+                            Text(
+                                text = state.entry.lotteryType.displayName,
+                                style = MaterialTheme.typography.headlineSmall,
+                                color = MaterialTheme.colorScheme.primary
+                            )
 
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        Text(
-                            text = state.entry.formattedDate,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-
-                        Spacer(modifier = Modifier.height(24.dp))
-
-                        // Main Numbers
-                        Text(
-                            text = stringResource(R.string.main_numbers),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        FlowRow(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            state.entry.mainNumbers.forEachIndexed { index, number ->
-                                LottoBall(
-                                    number = number,
-                                    index = index,
-                                    animate = false,
-                                    size = 56.dp
-                                )
-                            }
-                        }
-
-                        // Bonus Number
-                        if (state.entry.hasBonusNumbers) {
-                            Spacer(modifier = Modifier.height(24.dp))
+                            Spacer(modifier = Modifier.height(8.dp))
 
                             Text(
-                                text = stringResource(R.string.bonus_number),
+                                text = state.entry.formattedDate,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+
+                            Spacer(modifier = Modifier.height(24.dp))
+
+                            // Main Numbers
+                            Text(
+                                text = stringResource(R.string.main_numbers),
                                 style = MaterialTheme.typography.titleMedium
                             )
 
                             Spacer(modifier = Modifier.height(12.dp))
 
-                            Row(
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            FlowRow(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
-                                state.entry.bonusNumbers.forEachIndexed { index, number ->
+                                state.entry.mainNumbers.forEachIndexed { index, number ->
                                     LottoBall(
                                         number = number,
-                                        isBonus = true,
                                         index = index,
                                         animate = false,
-                                        size = 56.dp
+                                        size = ballSize
                                     )
                                 }
                             }
+
+                            // Bonus Number
+                            if (state.entry.hasBonusNumbers) {
+                                Spacer(modifier = Modifier.height(24.dp))
+
+                                Text(
+                                    text = stringResource(R.string.bonus_number),
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+
+                                Spacer(modifier = Modifier.height(12.dp))
+
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    state.entry.bonusNumbers.forEachIndexed { index, number ->
+                                        LottoBall(
+                                            number = number,
+                                            isBonus = true,
+                                            index = index,
+                                            animate = false,
+                                            size = ballSize
+                                        )
+                                    }
+                                }
+                            }
                         }
-                    }
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                    // Lottery Type Info Card
-                    LottoCard {
-                        Text(
-                            text = stringResource(R.string.lottery_type_info),
-                            style = MaterialTheme.typography.titleMedium
-                        )
+                        // Lottery Type Info Card
+                        LottoCard {
+                            Text(
+                                text = stringResource(R.string.lottery_type_info),
+                                style = MaterialTheme.typography.titleMedium
+                            )
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                            Spacer(modifier = Modifier.height(8.dp))
 
-                        Text(
-                            text = state.entry.lotteryType.description,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                            Text(
+                                text = state.entry.lotteryType.description,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
                     }
                 }
             }

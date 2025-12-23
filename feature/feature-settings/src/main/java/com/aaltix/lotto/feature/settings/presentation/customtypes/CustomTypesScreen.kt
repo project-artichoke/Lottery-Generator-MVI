@@ -43,6 +43,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aaltix.lotto.core.domain.model.LotteryType
 import com.aaltix.lotto.core.ui.R
+import com.aaltix.lotto.core.ui.adaptive.CenteredContent
+import com.aaltix.lotto.core.ui.adaptive.adaptiveHorizontalPadding
 import com.aaltix.lotto.core.ui.components.LoadingIndicator
 import com.aaltix.lotto.core.ui.components.LottoCard
 import org.koin.androidx.compose.koinViewModel
@@ -119,17 +121,22 @@ private fun CustomTypesContent(
         },
         snackbarHost = { SnackbarHost(snackbarHostState) }
     ) { paddingValues ->
-        if (state.isLoading) {
-            LoadingIndicator(modifier = Modifier.padding(paddingValues))
-        } else if (state.customTypes.isEmpty()) {
-            EmptyState(modifier = Modifier.padding(paddingValues))
-        } else {
-            CustomTypesList(
-                types = state.customTypes,
-                onEdit = { onIntent(CustomTypesContract.Intent.EditCustomType(it)) },
-                onDelete = { onIntent(CustomTypesContract.Intent.DeleteCustomType(it)) },
-                modifier = Modifier.padding(paddingValues)
-            )
+        val horizontalPadding = adaptiveHorizontalPadding()
+
+        CenteredContent(maxWidth = 600.dp) {
+            if (state.isLoading) {
+                LoadingIndicator(modifier = Modifier.padding(paddingValues))
+            } else if (state.customTypes.isEmpty()) {
+                EmptyState(modifier = Modifier.padding(paddingValues))
+            } else {
+                CustomTypesList(
+                    types = state.customTypes,
+                    onEdit = { onIntent(CustomTypesContract.Intent.EditCustomType(it)) },
+                    onDelete = { onIntent(CustomTypesContract.Intent.DeleteCustomType(it)) },
+                    modifier = Modifier.padding(paddingValues),
+                    horizontalPadding = horizontalPadding
+                )
+            }
         }
     }
 }
@@ -166,12 +173,13 @@ private fun CustomTypesList(
     types: List<LotteryType>,
     onEdit: (String) -> Unit,
     onDelete: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    horizontalPadding: androidx.compose.ui.unit.Dp = 16.dp
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item {
             LottoCard(
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(horizontal = horizontalPadding, vertical = 16.dp)
             ) {
                 Column {
                     types.forEachIndexed { index, type ->

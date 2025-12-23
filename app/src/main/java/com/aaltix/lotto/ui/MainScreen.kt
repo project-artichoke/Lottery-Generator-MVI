@@ -1,11 +1,8 @@
 package com.aaltix.lotto.ui
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -19,7 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.aaltix.lotto.core.domain.repository.UserPreferencesRepository
 import com.aaltix.lotto.core.navigation.BottomNavItem
 import com.aaltix.lotto.navigation.LottoNavHost
-import com.aaltix.lotto.ui.components.LottoBottomNavigationBar
+import com.aaltix.lotto.ui.components.AdaptiveScaffold
 import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
 
@@ -69,32 +66,26 @@ private fun MainAppContent() {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
-    val showBottomBar = BottomNavItem.entries.any { item ->
+    val showNavigation = BottomNavItem.entries.any { item ->
         currentDestination?.hierarchy?.any { it.route == item.route } == true
     }
 
-    Scaffold(
-        contentWindowInsets = WindowInsets(0, 0, 0, 0),
-        bottomBar = {
-            if (showBottomBar) {
-                LottoBottomNavigationBar(
-                    currentDestination = currentDestination,
-                    onItemClick = { item ->
-                        navController.navigate(item.route) {
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                saveState = true
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
-                )
+    AdaptiveScaffold(
+        currentDestination = currentDestination,
+        showNavigation = showNavigation,
+        onNavItemClick = { item ->
+            navController.navigate(item.route) {
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
+                }
+                launchSingleTop = true
+                restoreState = true
             }
         }
-    ) { paddingValues ->
+    ) { modifier ->
         LottoNavHost(
             navController = navController,
-            modifier = Modifier.padding(paddingValues)
+            modifier = modifier
         )
     }
 }

@@ -41,6 +41,9 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aaltix.lotto.core.ui.R
+import com.aaltix.lotto.core.ui.adaptive.CenteredContent
+import com.aaltix.lotto.core.ui.adaptive.adaptiveHorizontalPadding
+import com.aaltix.lotto.core.ui.adaptive.isExpandedTablet
 import com.aaltix.lotto.core.ui.components.LoadingIndicator
 import com.aaltix.lotto.core.ui.components.LottoCard
 import org.koin.androidx.compose.koinViewModel
@@ -111,141 +114,220 @@ private fun AddEditLotteryTypeContent(
         },
         snackbarHost = { SnackbarHost(snackbarHostState) }
     ) { paddingValues ->
+        val horizontalPadding = adaptiveHorizontalPadding()
+        val isExpanded = isExpandedTablet()
+
         if (state.isLoading) {
             LoadingIndicator(modifier = Modifier.padding(paddingValues))
         } else {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp)
-                    .padding(top = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                // Name Input
-                OutlinedTextField(
-                    value = state.name,
-                    onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateName(it)) },
-                    label = { Text(stringResource(R.string.lottery_name)) },
-                    isError = state.nameError != null,
-                    supportingText = state.nameError?.let { { Text(it) } },
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.Words
-                    ),
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                // Main Numbers Section
-                LottoCard {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            text = stringResource(R.string.main_numbers),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                        Spacer(modifier = Modifier.height(12.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(16.dp)
-                        ) {
-                            NumberDropdown(
-                                label = stringResource(R.string.count),
-                                value = state.mainNumberCount,
-                                options = (1..10).toList(),
-                                onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateMainNumberCount(it)) },
-                                modifier = Modifier.weight(1f)
-                            )
-                            NumberDropdown(
-                                label = stringResource(R.string.max_value),
-                                value = state.mainNumberMax,
-                                options = (state.mainNumberCount..99).toList(),
-                                onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateMainNumberMax(it)) },
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-                    }
-                }
-
-                // Bonus Numbers Section
-                LottoCard {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            text = stringResource(R.string.bonus_number),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                        Spacer(modifier = Modifier.height(12.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(16.dp)
-                        ) {
-                            NumberDropdown(
-                                label = stringResource(R.string.count),
-                                value = state.bonusNumberCount,
-                                options = (0..3).toList(),
-                                onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateBonusNumberCount(it)) },
-                                modifier = Modifier.weight(1f)
-                            )
-                            NumberDropdown(
-                                label = stringResource(R.string.max_value),
-                                value = state.bonusNumberMax,
-                                options = if (state.bonusNumberCount > 0) {
-                                    (state.bonusNumberCount..99).toList()
-                                } else {
-                                    listOf(0)
-                                },
-                                onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateBonusNumberMax(it)) },
-                                enabled = state.bonusNumberCount > 0,
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-                    }
-                }
-
-                // Preview Section
-                LottoCard {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            text = stringResource(R.string.preview),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = state.previewMainNumbers,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        if (state.hasBonusNumbers) {
-                            Text(
-                                text = "+ ${state.previewBonusNumbers}",
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        } else {
-                            Text(
-                                text = state.previewBonusNumbers,
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                // Save Button
-                Button(
-                    onClick = { onIntent(AddEditLotteryTypeContract.Intent.Save) },
-                    enabled = state.isValid && !state.isSaving,
-                    modifier = Modifier.fillMaxWidth()
+            CenteredContent(maxWidth = 700.dp) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = horizontalPadding)
+                        .padding(top = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Text(
-                        text = if (state.isSaving) {
-                            stringResource(R.string.saving)
-                        } else {
-                            stringResource(R.string.save)
-                        }
+                    // Name Input
+                    OutlinedTextField(
+                        value = state.name,
+                        onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateName(it)) },
+                        label = { Text(stringResource(R.string.lottery_name)) },
+                        isError = state.nameError != null,
+                        supportingText = state.nameError?.let { { Text(it) } },
+                        singleLine = true,
+                        keyboardOptions = KeyboardOptions(
+                            capitalization = KeyboardCapitalization.Words
+                        ),
+                        modifier = Modifier.fillMaxWidth()
                     )
+
+                    if (isExpanded) {
+                        // Side-by-side layout for Main and Bonus numbers on expanded tablets
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(16.dp)
+                        ) {
+                            // Main Numbers Section
+                            LottoCard(modifier = Modifier.weight(1f)) {
+                                Column(modifier = Modifier.padding(16.dp)) {
+                                    Text(
+                                        text = stringResource(R.string.main_numbers),
+                                        style = MaterialTheme.typography.titleMedium
+                                    )
+                                    Spacer(modifier = Modifier.height(12.dp))
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+                                    ) {
+                                        NumberDropdown(
+                                            label = stringResource(R.string.count),
+                                            value = state.mainNumberCount,
+                                            options = (1..10).toList(),
+                                            onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateMainNumberCount(it)) },
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                        NumberDropdown(
+                                            label = stringResource(R.string.max_value),
+                                            value = state.mainNumberMax,
+                                            options = (state.mainNumberCount..99).toList(),
+                                            onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateMainNumberMax(it)) },
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                    }
+                                }
+                            }
+
+                            // Bonus Numbers Section
+                            LottoCard(modifier = Modifier.weight(1f)) {
+                                Column(modifier = Modifier.padding(16.dp)) {
+                                    Text(
+                                        text = stringResource(R.string.bonus_number),
+                                        style = MaterialTheme.typography.titleMedium
+                                    )
+                                    Spacer(modifier = Modifier.height(12.dp))
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+                                    ) {
+                                        NumberDropdown(
+                                            label = stringResource(R.string.count),
+                                            value = state.bonusNumberCount,
+                                            options = (0..3).toList(),
+                                            onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateBonusNumberCount(it)) },
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                        NumberDropdown(
+                                            label = stringResource(R.string.max_value),
+                                            value = state.bonusNumberMax,
+                                            options = if (state.bonusNumberCount > 0) {
+                                                (state.bonusNumberCount..99).toList()
+                                            } else {
+                                                listOf(0)
+                                            },
+                                            onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateBonusNumberMax(it)) },
+                                            enabled = state.bonusNumberCount > 0,
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        // Stacked layout for phones and medium tablets
+                        // Main Numbers Section
+                        LottoCard {
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    text = stringResource(R.string.main_numbers),
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(modifier = Modifier.height(12.dp))
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                                ) {
+                                    NumberDropdown(
+                                        label = stringResource(R.string.count),
+                                        value = state.mainNumberCount,
+                                        options = (1..10).toList(),
+                                        onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateMainNumberCount(it)) },
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    NumberDropdown(
+                                        label = stringResource(R.string.max_value),
+                                        value = state.mainNumberMax,
+                                        options = (state.mainNumberCount..99).toList(),
+                                        onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateMainNumberMax(it)) },
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                }
+                            }
+                        }
+
+                        // Bonus Numbers Section
+                        LottoCard {
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    text = stringResource(R.string.bonus_number),
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(modifier = Modifier.height(12.dp))
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                                ) {
+                                    NumberDropdown(
+                                        label = stringResource(R.string.count),
+                                        value = state.bonusNumberCount,
+                                        options = (0..3).toList(),
+                                        onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateBonusNumberCount(it)) },
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    NumberDropdown(
+                                        label = stringResource(R.string.max_value),
+                                        value = state.bonusNumberMax,
+                                        options = if (state.bonusNumberCount > 0) {
+                                            (state.bonusNumberCount..99).toList()
+                                        } else {
+                                            listOf(0)
+                                        },
+                                        onValueChange = { onIntent(AddEditLotteryTypeContract.Intent.UpdateBonusNumberMax(it)) },
+                                        enabled = state.bonusNumberCount > 0,
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    // Preview Section
+                    LottoCard {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = stringResource(R.string.preview),
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = state.previewMainNumbers,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            if (state.hasBonusNumbers) {
+                                Text(
+                                    text = "+ ${state.previewBonusNumbers}",
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            } else {
+                                Text(
+                                    text = state.previewBonusNumbers,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // Save Button
+                    Button(
+                        onClick = { onIntent(AddEditLotteryTypeContract.Intent.Save) },
+                        enabled = state.isValid && !state.isSaving,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = if (state.isSaving) {
+                                stringResource(R.string.saving)
+                            } else {
+                                stringResource(R.string.save)
+                            }
+                        )
+                    }
                 }
             }
         }
