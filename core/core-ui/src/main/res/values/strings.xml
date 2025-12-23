@@ -1,0 +1,78 @@
+<resources>
+    <!-- Common -->
+    <string name="main_numbers">Main Numbers</string>
+    <string name="bonus_number">Bonus Number</string>
+    <string name="back">Back</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="close">Close</string>
+    <string name="info">Info</string>
+    <string name="generating">Generating…</string>
+    <string name="save">Save</string>
+    <string name="saving">Saving…</string>
+    <string name="count">Count</string>
+    <string name="max_value">Max</string>
+    <string name="preview">Preview</string>
+
+    <!-- Generator Screen -->
+    <string name="lottery_generator">Lottery Generator</string>
+    <string name="lottery_type">Lottery Type</string>
+    <string name="generate_numbers">Generate Numbers</string>
+    <string name="tap_generate_prompt">Tap Generate to get your lucky numbers!</string>
+    <string name="select_lottery_type">Select Lottery Type</string>
+    <string name="official_lotteries">Official Lotteries</string>
+    <string name="my_custom_lotteries">My Custom Lotteries</string>
+
+    <!-- History Detail Screen -->
+    <string name="details">Details</string>
+    <string name="lottery_type_info">Lottery Type Info</string>
+
+    <!-- Settings Screen -->
+    <string name="settings">Settings</string>
+    <string name="available_lottery_types">Available Lottery Types</string>
+    <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="developer">Developer</string>
+    <string name="developer_name">Aaltix</string>
+    <string name="architecture">Architecture</string>
+    <string name="architecture_description">MVI + Jetpack Compose + Koin</string>
+    <string name="pick_main_numbers">Pick %1$d numbers from 1 to %2$d</string>
+    <string name="pick_bonus_number">Pick %1$d number from 1 to %2$d</string>
+
+    <!-- Custom Lottery Types -->
+    <string name="custom_lottery_types">Custom Lottery Types</string>
+    <string name="add_lottery_type">Add Lottery Type</string>
+    <string name="edit_lottery_type">Edit Lottery Type</string>
+    <string name="lottery_name">Lottery Name</string>
+    <string name="no_custom_types">No custom lottery types</string>
+    <string name="tap_plus_to_add">Tap + to create your own lottery type</string>
+    <string name="manage_custom_types">Manage Custom Types</string>
+    <string name="custom_types_count">%1$d custom types</string>
+
+    <!-- History Screen -->
+    <string name="history">History</string>
+    <string name="history_filter_all">All</string>
+    <string name="history_clear_all">Clear all</string>
+    <string name="history_clear_title">Clear History</string>
+    <string name="history_clear_message">Are you sure you want to delete all history entries? This action cannot be undone.</string>
+    <string name="history_clear_confirm">Clear All</string>
+    <string name="history_clear_cancel">Cancel</string>
+    <string name="history_empty_title">No History Yet</string>
+    <string name="history_empty_message">Generate some lottery numbers and they will appear here!</string>
+    <string name="history_entry_deleted">Entry deleted</string>
+    <string name="history_cleared">History cleared</string>
+
+    <!-- Disclaimer Screen -->
+    <string name="disclaimer_title">Important Notice</string>
+    <string name="disclaimer_welcome">Welcome to Lottery Generator</string>
+    <string name="disclaimer_entertainment_only">This app is for entertainment purposes only</string>
+    <string name="disclaimer_no_sales">This app does NOT sell lottery tickets and is not affiliated with any official lottery organization.</string>
+    <string name="disclaimer_no_guarantee">Generated numbers are randomly selected and do not guarantee any lottery wins. All lottery outcomes are determined solely by official drawings.</string>
+    <string name="disclaimer_age_requirement">You must be 18 years or older to use this app.</string>
+    <string name="disclaimer_age_confirm">I confirm that I am 18 years of age or older</string>
+    <string name="disclaimer_accept">I Understand</string>
+    <string name="disclaimer_responsible_gaming">If you or someone you know has a gambling problem, call 1-800-GAMBLER for help.</string>
+    <string name="responsible_gaming_hotline">1-800-GAMBLER</string>
+    <string name="responsible_gaming">Responsible Gaming</string>
+    <string name="responsible_gaming_link">Get Help: 1-800-GAMBLER</string>
+</resources>
