@@ -9,6 +9,18 @@
 .cxx
 local.properties
 
+# Release/build artifacts
+/app/release/
+*.aab
+*.apk
+
+# Firebase
+firebase-debug.log
+.firebase/
+
+# General logs
+*.log
+
 # Project exclude paths
 /core/core-common/build/
 /core/core-data/build/
